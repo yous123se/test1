@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe de Direction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #86bc42;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            background: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .department-section {
+            padding: 4rem 2rem;
+            background: white;
+            margin: 2rem auto;
+            max-width: 1400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .member-image {
+            position: relative;
+            padding-top: 100%;
+            background: #f5f5f5;
+        }
+
+        .member-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-name {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .member-bio {
+            padding: 0 1.5rem 1.5rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-bio {
+            height: auto;
+            opacity: 1;
+            padding-top: 1rem;
+        }
+
+        .stats-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 1rem;
+            }
+
+            .department-section {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <h1>Notre Équipe d'Excellence</h1>
+        <p>Une équipe dévouée et passionnée au service de votre réussite académique</p>
+    </section>
+
+    <section class="department-section">
+        <h2 class="section-title">Direction</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="IMG-20241006-WA0007.jpg" alt="Directrice">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Saloua Tazeroualt Tlemcani</h3>
+                    <p class="member-role">Directrice du Complexe</p>
+                    <div class="member-contact">
+                        <button class="contact-button">📧 Email</button>
+                        <button class="contact-button">📱 Contact</button>
+                    </div>
+                </div>
+                <div class="member-bio">
+                    Plus de 15 ans d'expérience dans la direction d'établissements d'enseignement
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="IMG-20241006-WA0007.jpg" alt="Directeur Pédagogique">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Zerrai Ismail</h3>
+                    <p class="member-role">Directeur Pédagogique</p>
+                    <div class="member-contact">
+                        <button class="contact-button">📧 Email</button>
+                        <button class="contact-button">📱 Contact</button>
+                    </div>
+                </div>
+                <div class="member-bio">
+                    Expert en développement de programmes éducatifs innovants
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="department-section">
+        <h2 class="section-title">Équipe Pédagogique</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="anonimo persona.png" alt="Conseillère">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Soukaina EL Assouli</h3>
+                    <p class="member-role">Conseillère en Orientation</p>
+                    <div class="member-contact">
+                        <button class="contact-button">📧 Email</button>
+                        <button class="contact-button">📱 Contact</button>
+                    </div>
+                </div>
+                <div class="member-bio">
+                    Spécialiste en orientation professionnelle et académique
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="anonimo persona.png" alt="Chef département">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Manser Nezha</h3>
+                    <p class="member-role">Chef du Département des Stagiaires</p>
+                    <div class="member-contact">
+                        <button class="contact-button">📧 Email</button>
+                        <button class="contact-button">📱 Contact</button>
+                    </div>
+                </div>
+                <div class="member-bio">
+                    Coordination et suivi personnalisé des stagiaires
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="anonimo persona.png" alt="Gestionnaire">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Bourmiche Imon Jnae F.Z</h3>
+                    <p class="member-role">Gestionnaire des Stages</p>
+                    <div class="member-contact">
+                        <button class="contact-button">📧 Email</button>
+                        <button class="contact-button">📱 Contact</button>
+                    </div>
+                </div>
+                <div class="member-bio">
+                    Organisation et suivi des stages professionnels
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Années d'Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Étudiants Formés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Taux de Réussite</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Partenaires</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation subtile d'apparition au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Applique l'animation à toutes les cartes et sections
+            document.querySelectorAll('.member-card, .department-section, .stats-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+
+            // Animation des statistiques
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    stat.textContent = Math.round(current) + (stat.textContent.includes('%') ? '%' : '+');
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>
